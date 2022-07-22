@@ -9,7 +9,7 @@ import javax.persistence.PostUpdate;
 import java.util.List;
 
 @RestController
-@RequestMapping("v1/todos")
+@RequestMapping("api/v1/todos")
 public class TodoController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class TodoController {
         return todoService.getAllToDos();
     }
 
-    @PostUpdate
+    @PostMapping
     public void saveTodo(@PathVariable String todoItem) {
         todoService.saveTodo(todoItem);
     }
@@ -30,7 +30,7 @@ public class TodoController {
         todoService.updateTodo(todo);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void deleteTodo(@PathVariable long id) {
         todoService.deleteTodo(id);
     }
