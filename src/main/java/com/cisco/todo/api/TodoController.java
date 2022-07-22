@@ -1,11 +1,11 @@
 package com.cisco.todo.api;
 
-import com.cisco.todo.dto.Todo;
+import com.cisco.todo.dto.RequestDTO;
+import com.cisco.todo.dto.TodoDTO;
 import com.cisco.todo.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.PostUpdate;
 import java.util.List;
 
 @RestController
@@ -16,17 +16,17 @@ public class TodoController {
     private TodoService todoService;
 
     @GetMapping
-    public List<Todo> getAllToDos() {
+    public List<TodoDTO> getAllToDos() {
         return todoService.getAllToDos();
     }
 
     @PostMapping
-    public void saveTodo(@PathVariable String todoItem) {
-        todoService.saveTodo(todoItem);
+    public void saveTodo(@RequestBody RequestDTO requestDTO) {
+        todoService.saveTodo(requestDTO);
     }
 
     @PutMapping
-    public void updateTodo(@RequestBody Todo todo) {
+    public void updateTodo(@RequestBody TodoDTO todo) {
         todoService.updateTodo(todo);
     }
 

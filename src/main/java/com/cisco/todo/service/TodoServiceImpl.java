@@ -1,6 +1,7 @@
 package com.cisco.todo.service;
 
-import com.cisco.todo.dto.Todo;
+import com.cisco.todo.dto.RequestDTO;
+import com.cisco.todo.dto.TodoDTO;
 import com.cisco.todo.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,19 +15,19 @@ public class TodoServiceImpl implements TodoService {
     private TodoRepository todoRepository;
 
     @Override
-    public List<Todo> getAllToDos() {
+    public List<TodoDTO> getAllToDos() {
         return todoRepository.findAll();
     }
 
     @Override
-    public void saveTodo(String todoItem) {
-        Todo todo = new Todo();
-        todo.setTodo(todoItem);
+    public void saveTodo(RequestDTO requestDTO) {
+        TodoDTO todo = new TodoDTO();
+        todo.setTodo(requestDTO.getTodoItem());
         todoRepository.save(todo);
     }
 
     @Override
-    public void updateTodo(Todo todo) {
+    public void updateTodo(TodoDTO todo) {
         todoRepository.save(todo);
     }
 

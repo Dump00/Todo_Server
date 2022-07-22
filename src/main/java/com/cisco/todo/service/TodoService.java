@@ -1,13 +1,14 @@
 package com.cisco.todo.service;
 
-import com.cisco.todo.dto.Todo;
+import com.cisco.todo.dto.RequestDTO;
+import com.cisco.todo.dto.TodoDTO;
 
 
 import java.util.List;
 
 public interface TodoService {
-    List<Todo> getAllToDos();
-    void saveTodo(String todoItem);
-    void updateTodo(Todo todo);
+    List<TodoDTO> getAllToDos();
+    void saveTodo(RequestDTO requestDTO);
+    void updateTodo(TodoDTO todo);
     void deleteTodo(long id);
 }
