@@ -7,12 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TodoServiceImpl implements TodoService {
 
     @Autowired
     private TodoRepository todoRepository;
+
+    @Override
+    public Optional<TodoDTO> getTodo(long id) {
+        return todoRepository.findById(id);
+    }
 
     @Override
     public List<TodoDTO> getAllToDos() {
