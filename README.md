@@ -1,4 +1,4 @@
-# Todo List Client 📝
+# Todo List Service 📝
 
 ![alt text](https://github.com/sovisrushain/Todo_Client/raw/main/img/todo.png)
 
